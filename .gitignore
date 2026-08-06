@@ -1,0 +1,87 @@
+# macOS
+.DS_Store
+._*
+
+# Swift and Xcode build output
+.build/
+build/
+DerivedData/
+.swiftpm/
+Packages/
+*.app/
+*.dSYM/
+*.dSYM.zip
+*.xcarchive/
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Dependency folders
+Pods/
+Carthage/Build/
+node_modules/
+vendor/
+
+# Local agent instructions (keep on this Mac)
+[Aa][Gg][Ee][Nn][Tt].[Mm][Dd]
+[Aa][Gg][Ee][Nn][Tt][Ss].[Mm][Dd]
+[Cc][Ll][Aa][Uu][Dd][Ee].[Mm][Dd]
+
+# Environment and credential files
+.[Ee][Nn][Vv]*
+!.[Ee][Nn][Vv].[Ee][Xx][Aa][Mm][Pp][Ll][Ee]
+.netrc
+.npmrc
+.pypirc
+auth.json
+credentials.json
+secrets.json
+tokens.json
+passwords.txt
+api-keys.txt
+api_keys.txt
+GoogleService-Info.plist
+id_rsa*
+id_ed25519*
+*.[Pp][Ee][Mm]
+*.[Kk][Ee][Yy]
+*.[Pp]8
+*.[Pp]12
+*.[Pp][Ff][Xx]
+*.[Cc][Ee][Rr]
+*.[Cc][Rr][Tt]
+*.[Dd][Ee][Rr]
+*.[Jj][Kk][Ss]
+*.[Kk][Ee][Yy][Ss][Tt][Oo][Rr][Ee]
+*.[Mm][Oo][Bb][Ii][Ll][Ee][Pp][Rr][Oo][Vv][Ii][Ss][Ii][Oo][Nn]
+
+# Databases, dumps, logs, and temporary files
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.dump
+*.sql.gz
+*.sql.bz2
+*.sql.xz
+*.bak
+*.log
+logs/
+.logs/
+tmp/
+temp/
+*.tmp
+
+# Local editor files
+.idea/
+.vscode/
+*.swp
+*~
+
+# Coverage and profiling output
+.coverage
+*.profdata
+*.profraw
