@@ -1,6 +1,6 @@
 import Foundation
 
-public enum NBAGameStatus: Equatable {
+public enum NBAGameStatus: Equatable, Sendable {
     case scheduled
     case live
     case final
@@ -28,7 +28,7 @@ public enum NBAGameStatus: Equatable {
     }
 }
 
-public struct NBATeamSummary: Equatable {
+public struct NBATeamSummary: Equatable, Sendable {
     public var city: String
     public var name: String
     public var tricode: String
@@ -42,7 +42,7 @@ public struct NBATeamSummary: Equatable {
     }
 }
 
-public struct NBAGameSummary: Identifiable, Equatable {
+public struct NBAGameSummary: Identifiable, Equatable, Sendable {
     public var id: String
     public var awayTeam: NBATeamSummary
     public var homeTeam: NBATeamSummary
@@ -100,7 +100,7 @@ public struct NBAGameSummary: Identifiable, Equatable {
     }
 }
 
-public struct NBAScoreboard: Equatable {
+public struct NBAScoreboard: Equatable, Sendable {
     public var gameDate: String
     public var games: [NBAGameSummary]
     public var updatedAt: Date
@@ -125,7 +125,7 @@ public struct NBAScoreboard: Equatable {
     }
 }
 
-public struct NBAPlayerLine: Identifiable, Equatable {
+public struct NBAPlayerLine: Identifiable, Equatable, Sendable {
     public var id: Int
     public var name: String
     public var minutes: String
@@ -160,7 +160,7 @@ public struct NBAPlayerLine: Identifiable, Equatable {
     }
 }
 
-public struct NBABoxScoreTeam: Equatable {
+public struct NBABoxScoreTeam: Equatable, Sendable {
     public var tricode: String
     public var score: Int
     public var players: [NBAPlayerLine]
@@ -172,7 +172,7 @@ public struct NBABoxScoreTeam: Equatable {
     }
 }
 
-public struct NBABoxScore: Equatable {
+public struct NBABoxScore: Equatable, Sendable {
     public var gameId: String
     public var awayTeam: NBABoxScoreTeam
     public var homeTeam: NBABoxScoreTeam
@@ -196,7 +196,7 @@ public struct NBABoxScore: Equatable {
     }
 }
 
-public enum NBAScoresStatus: Equatable {
+public enum NBAScoresStatus: Equatable, Sendable {
     case disabled
     case idle
     case loading
@@ -295,7 +295,7 @@ public enum NBADataError: Error, Equatable {
     case emptyResponse
 }
 
-public struct NBAClient {
+public struct NBAClient: Sendable {
     private let httpClient: NBAHTTPClient
 
     public init(httpClient: NBAHTTPClient) {

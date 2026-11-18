@@ -24,6 +24,10 @@ let package = Package(
         .testTarget(
             name: "MacBookDynamicIslandCoreTests",
             dependencies: ["MacBookDynamicIslandCore"]
+        ),
+        .testTarget(
+            name: "MacBookDynamicIslandAppTests",
+            dependencies: ["MacBookDynamicIslandApp", "MacBookDynamicIslandCore"]
         )
     ]
 )

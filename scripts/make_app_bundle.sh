@@ -3,14 +3,18 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP_NAME="MacBookDynamicIslandApp"
-EXECUTABLE_PATH="$ROOT_DIR/.build/release/$APP_NAME"
 BUILD_DIR="$ROOT_DIR/build"
 APP_DIR="$BUILD_DIR/$APP_NAME.app"
 CONTENTS_DIR="$APP_DIR/Contents"
 MACOS_DIR="$CONTENTS_DIR/MacOS"
 
+# Build first so the bundle never ships a stale binary, then ask SwiftPM where
+# the product landed: the path differs between toolchain versions.
+swift build -c release --package-path "$ROOT_DIR"
+EXECUTABLE_PATH="$(swift build -c release --package-path "$ROOT_DIR" --show-bin-path)/$APP_NAME"
+
 if [[ ! -x "$EXECUTABLE_PATH" ]]; then
-  echo "Release executable not found. Run: swift build -c release"
+  echo "Release executable not found at $EXECUTABLE_PATH" >&2
   exit 1
 fi
 
